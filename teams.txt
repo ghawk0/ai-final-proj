@@ -1,0 +1,31 @@
+Team 1
+John, M, M
+Jacob, M, A
+Jingle, F, A
+Heimer, M, A
+Schmidt, NB, F
+2, 4, 3
+
+Team 2
+Supercali, M, A
+Fragil, M, M
+Istic, F, F
+Expeali, F, F
+Docious, M, A
+1, 3, 4
+
+Team 3
+Fred, M, A
+Daphne, F, F
+Velma, F, A
+Shaggy, M, A
+Scooby, NB, A
+1, 2, 4
+
+Team 4
+Homer, M, F
+Bart, M, M
+Marge, F, A
+Lisa, F, A
+Maggie, F, F
+3, 1, 2
