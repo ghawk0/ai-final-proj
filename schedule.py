@@ -56,22 +56,27 @@ def addteam(list):
             i = i + 2
     teamnum = team(teamnum, players, matchups)
     return teamnum
-          
-teams = []
-filename = 'teams.txt'
-with open(filename) as f:
-    teamlist = []
-    for line in f:
-        for word in line.split():
-            if word == "Team":
-                newteam = True
-                if teamlist:
-                    #print(clean(teamlist))
-                    teams.append(addteam(clean(teamlist)))
-                teamlist = []
-            if newteam:
-                teamlist.append(word)
-    #print(clean(teamlist))
-    teams.append(addteam(clean(teamlist)))
-    
-print(teams[0][1])
+
+def main():
+    teams = []
+    filename = 'teams.txt'
+    with open(filename) as f:
+        teamlist = []
+        for line in f:
+            for word in line.split():
+                if word == "Team":
+                    newteam = True
+                    if teamlist:
+                        #print(clean(teamlist))
+                        teams.append(addteam(clean(teamlist)))
+                    teamlist = []
+                if newteam:
+                    teamlist.append(word)
+        #print(clean(teamlist))
+        teams.append(addteam(clean(teamlist)))
+    print(teams[0].players[0].name)
+
+if __name__ == '__main__':
+    main()
+
+
