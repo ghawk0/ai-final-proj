@@ -1,3 +1,6 @@
+import sys
+
+rankings = {}
 
 """
 matchups = list of best to worst of the other teams to play against
@@ -11,6 +14,12 @@ class team():
         self.players = players
         self.matchups = matchups
 
+    def __str__(self):
+        return str(self.num)
+
+    def __repr__(self):
+        return str(self.num)
+
 """
 name = string name
 gen = player's gender 
@@ -20,7 +29,13 @@ class player():
     def __init__(self, name, gen, pgen):
         self.name = name
         self.gen = gen
-        self.gen = pgen
+        self.pgen = pgen
+
+    def __str__(self):
+        return str(self.name)
+
+    def __repr__(self):
+        return str(self.name)
 
 """
 input is all the messy strings, in a list, that represent a single team
@@ -57,9 +72,53 @@ def addteam(list):
     teamnum = team(teamnum, players, matchups)
     return teamnum
 
+
+def computeScore(team1, team2):
+    score = 0
+    used = []
+    for player1 in team1.players:
+        for player2 in team2.players:
+            if player2 in used:
+                continue
+            elif player1.pgen == 'A':
+                score += 1
+                break
+            elif player1.pgen == player2.gen:
+                score += 1
+                used.append(player2)
+                break
+    # once this for loop has done its thing, we will have updated the score for how good
+    # team1 feels about playing team 2, now we need to figure out how good team2 feels
+    # about playing team1
+
+    used2 = []
+    for player2 in team2.players:
+        for player1 in team1.players:
+            if player1 in used2:
+                continue
+            elif player2.pgen == 'A':
+                score += 1
+                break
+            elif player2.pgen == player1.gen:
+                score += 1
+                used2.append(player1)
+                break
+    return score
+
+
+def rankTeams(teams):
+    for team1 in teams:
+        for team2 in teams:
+            score = computeScore(team1, team2)
+            rankings[team1, team2] = score
+            rankings[team2, team1] = score
+
+
 def main():
     teams = []
-    filename = 'teams.txt'
+    pots = sys.argv[1]
+    filename = sys.argv[2]
+    # let's maybe have the first argument be the number of pots
     with open(filename) as f:
         teamlist = []
         for line in f:
@@ -75,6 +134,9 @@ def main():
         #print(clean(teamlist))
         teams.append(addteam(clean(teamlist)))
     print(teams[0].players[0].name)
+    rankTeams(teams)
+    print(rankings)
+
 
 if __name__ == '__main__':
     main()
