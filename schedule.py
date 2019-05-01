@@ -1,7 +1,7 @@
 import sys
 
 rankings = {}
-
+ # testing git
 """
 matchups = list of best to worst of the other teams to play against
 players = list of players on the team
