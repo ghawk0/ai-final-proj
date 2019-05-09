@@ -2,6 +2,30 @@ import sys
 
 rankings = {}
  # testing git
+
+
+"""
+ get players, get team sizes we want, based on that we decide how many divisions, how many 
+ teams per division, what size of division is
+ 
+ output-> other program decides what division for what field, how many teams on a field
+ Matt is doing competitive teams
+ 
+ we want to equalize fields on teams, minimize 
+ currently Dom is: using CSP, finds all valid solutions, compares using priority queue
+ is there a hueristic approach for finding variables and values in backtracking?
+ also multiagent algorithms? 
+ 
+ Dom's program
+ 
+ field input: number of fields, divisions #, teams total, teams per division (10,14,6), run assignments on
+ this to find 
+ 
+ players
+ max divisions
+ permissible team sizes (3 lines)
+"""
+
 """
 matchups = list of best to worst of the other teams to play against
 players = list of players on the team
@@ -114,6 +138,18 @@ def rankTeams(teams):
             rankings[team2, team1] = score
 
 
+def games(total, per, inbetween):
+    done = False
+    games = 0
+    while total - per > 0:
+        total = total - per - inbetween
+        games = games + 1
+    return games
+
+
+# def schedule(games, teams):
+
+
 def main():
     teams = []
     pots = sys.argv[1]
@@ -126,16 +162,19 @@ def main():
                 if word == "Team":
                     newteam = True
                     if teamlist:
-                        #print(clean(teamlist))
+                        # print(clean(teamlist))
                         teams.append(addteam(clean(teamlist)))
                     teamlist = []
                 if newteam:
                     teamlist.append(word)
-        #print(clean(teamlist))
+        # print(clean(teamlist))
         teams.append(addteam(clean(teamlist)))
-    print(teams[0].players[0].name)
     rankTeams(teams)
     print(rankings)
+    # sorted  = [(x, y) for x, y in rankings.items()]
+    # sorted.sort(key=lambda tup: tup[1], reverse=True)
+    # print(sorted)
+    print(games(120, 15, 5))
 
 
 if __name__ == '__main__':
