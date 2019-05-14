@@ -1,18 +1,27 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 
 public class AssignFields {
 
 	public static void main(String[] args) {
 		
-		String inputFile = args[0];
+		String inputFile = null;
 		
+		try {
+			inputFile = args[0];
+		} catch (Exception ex) {
+			System.out.println("Please specify an input file.");
+			System.exit(-1);
+		}
+		
+		// Domain for variables representing number of teams on a given field.
 		ArrayList<Integer> domainOne = new ArrayList<Integer>();
-		ArrayList<Integer> domainTwo = new ArrayList<Integer>();
-		//ArrayList<Integer> teamsPerDivision = new ArrayList<Integer>();
 		
+		// Domain for variables representing division assigned to a given field. 
+		ArrayList<Integer> domainTwo = new ArrayList<Integer>();
+		
+		// teamsPerDivision[i] = number of teams on division i. 
 		Integer[] teamsPerDivision = null;
 		
 		int numFields = 0;
@@ -34,13 +43,25 @@ public class AssignFields {
 				i++;
 			}
 			
+			reader.close();
+			
 		} catch (Exception ex) {
 			System.err.println("Problem reading from file!");
 			ex.printStackTrace();
 			System.exit(-1);
 		}
 		
-		for (int i = 0 ; i <= numTeams;  i++) {
+		// The maximum number of teams on a given division. 
+		int maxTeamNum = 0;
+		
+		for (int i = 0; i < teamsPerDivision.length; i++) {
+			if (teamsPerDivision[i] >= maxTeamNum) {
+				maxTeamNum = teamsPerDivision[i];
+			}
+			
+		}
+		
+		for (int i = 0 ; i <= maxTeamNum;  i++) {
 			domainOne.add(i);
 		}
 		
@@ -48,25 +69,40 @@ public class AssignFields {
 			domainTwo.add(i);
 		}
 		
+		// Create new CSP fields instance. 
 		CSPFields problem = new CSPFields(numFields, numTeams, teamsPerDivision);
 		
-		
+		// Add numFields variables to both lists of CSP. 
 		for (int i = 0; i < numFields; i++) {
 			problem.addVariable(domainOne, 1);
 			problem.addVariable(domainTwo, 2);
 		}
+
+		for (int i = 0; i < numFields; i++) {
+			problem.addNeighbor(1, i, 2, i);
+			problem.addNeighbor(2, i, 1, i);
+		}
 		
-		//System.out.println(problem);
-		
-		PriorityQueue<CSPFields> solutions = new PriorityQueue<CSPFields>(new CSPComparator());
-		
-		
+		// Create ArrayList of solutions to CSP. 
+		ArrayList<CSPFields> solutions = new ArrayList<CSPFields>();
 		problem.backtrack(solutions);
 		
-		CSPFields solution = solutions.poll();
+		if (solutions.isEmpty()) {
+			System.out.println("There is no solution to the given instance. ");
+			System.exit(-1);
+		}
 		
-		ArrayList<Variable> numTeamsPerField = solution.varLists.get(1);
-		ArrayList<Variable> divPerField = solution.varLists.get(2);
+		CSPFields minSolution = solutions.get(0);
+		
+		for (CSPFields solution : solutions) {
+			if (solution.getCost() < minSolution.getCost()) {
+				minSolution = solution;
+			}
+		}
+		
+		
+		ArrayList<Variable> numTeamsPerField = minSolution.varLists.get(1);
+		ArrayList<Variable> divPerField = minSolution.varLists.get(2);
 		
 		System.out.println("Division to Field assignments: ");
 		

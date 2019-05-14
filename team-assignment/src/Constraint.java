@@ -1,7 +1,8 @@
 import java.util.Objects;
 
 /**
- * The {@link Constraint} class
+ * The {@link Constraint} class represents a constraint between two 
+ * Variables in a CSP problem. 
  *
  * @author Dominic Bosco
  * @date 03/15/2019
@@ -18,8 +19,8 @@ public class Constraint {
 	/**
 	 * Constructs a new constraint
 	 * 
-	 * @param var1 : the first square
-	 * @param var2 : the second square
+	 * @param var1 : the first variable
+	 * @param var2 : the second second variable
 	 */
 	public Constraint(Variable var1, Variable var2) {
 		this.var1 = var1;
