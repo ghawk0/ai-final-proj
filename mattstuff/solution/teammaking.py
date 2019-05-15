@@ -141,9 +141,8 @@ def ranks(sorted, teams):
 
 def main():
     teams = []
-    pots = sys.argv[1]
-    filename = sys.argv[2]
-    divnumber = sys.argv[3]
+    filename = sys.argv[1]
+    divnumber = sys.argv[2]
     # let's maybe have the first argument be the number of pots
     with open(filename) as f:
         teamlist = []
@@ -166,7 +165,7 @@ def main():
     #print(sorted)
     #print(games(120, 15, 5))
     #print(ranks(sorted, len(teams)))
-    n = int(pots)
+    n = int(divnumber)
     
     pools = {}
     for i in range(n):
@@ -180,8 +179,8 @@ def main():
 
     m = math.floor(len(rank)/n) #number of teams in each pot
     sizes = []
-    filename = "div-{}-fields.txt".format(divnumber)
-    file = open(filename,'r+')
+    filename1 = "div-{}-fields.txt".format(divnumber)
+    file = open(filename1,'r+')
     numteams = file.readline()
     if numteams == len(rank):
         print("very good")
