@@ -1,0 +1,8 @@
+n = # of players
+k = max # of divisions
+p_1 = permissible team size one
+p_2 = permissible team size two
+.
+.
+.
+p_n = permissible team size n

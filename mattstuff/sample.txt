@@ -1,0 +1,5 @@
+6 #number of teams in this division
+3 #number of fields allotted
+2 #num teams on field 1 etc
+2
+2

@@ -1,0 +1,24 @@
+Team 1
+James, M, A
+Gregory, M, A
+
+Team 2
+James, M, A
+Porfirio, M, M
+
+Team 3
+William, M, M
+Robert, M, M
+
+Team 4
+Terrell, M, M
+Glenn, M, M
+
+Team 5
+William, M, M
+Michael, M, M
+
+Team 6
+Charles, M, M
+David, M, M
+

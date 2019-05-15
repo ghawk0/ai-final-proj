@@ -1,0 +1,112 @@
+Team 1
+Shannon, M, A
+Michael, M, M
+Phil, M, A
+Joe, M, A
+Hazel, F, F
+Randy, NB, A
+
+Team 2
+Gladys, F, F
+Shirley, F, F
+Francisco, M, M
+Shannon, F, A
+Geoffrey, M, A
+Daniel, M, M
+
+Team 3
+Benjamin, M, M
+Herman, M, A
+Logan, M, M
+John, M, M
+Richard, M, A
+Mary, F, A
+
+Team 4
+Isaac, M, A
+Arthur, M, A
+Gloria, F, F
+William, M, A
+Joseph, M, A
+Victor, M, M
+
+Team 5
+Leland, M, M
+John, M, A
+Charles, M, M
+Gino, M, M
+William, M, A
+Jessie, M, A
+
+Team 6
+Chad, M, M
+Ricardo, M, A
+Allen, M, A
+Francesco, M, M
+Wayne, M, A
+Justin, M, M
+
+Team 7
+Robert, M, A
+Winfred, M, M
+John, M, A
+Javier, M, A
+Kathleen, F, A
+William, M, M
+
+Team 8
+Ernest, M, M
+Roberto, M, M
+Faustino, M, A
+David, M, A
+James, M, A
+David, M, A
+
+Team 9
+Robert, M, M
+Daniel, M, M
+Paul, M, A
+Stan, M, M
+John, M, M
+Timothy, M, M
+
+Team 10
+Tina, F, A
+Vaughn, M, M
+Isiah, M, M
+Kevin, M, M
+Juan, M, M
+Angela, F, A
+
+Team 11
+Jimmie, M, M
+Augusta, F, F
+Patricia, F, F
+Sean, M, M
+Richard, M, M
+Joseph, M, M
+
+Team 12
+Scottie, M, A
+Matthew, M, M
+Edith, NB, F
+Kenneth, M, A
+Miguel, M, A
+Earl, M, A
+
+Team 13
+Mark, M, M
+Bernard, M, A
+Chris, M, M
+Jerry, M, A
+Charles, M, A
+Jorge, M, A
+
+Team 14
+Arthur, M, M
+Robert, M, A
+Pearline, F, F
+Matthew, M, M
+James, M, A
+Casey, M, A
+

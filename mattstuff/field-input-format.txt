@@ -1,0 +1,9 @@
+n = # of fields;
+k = # of divs;
+t = total # of fields;
+d1 = # of teams on div one
+d2 = # of teams on div two
+.
+.
+.
+dn = # of teams on div n
