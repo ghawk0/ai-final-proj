@@ -21,3 +21,5 @@ provide the following steps:
    
       1. The .dat files necessary for running the pyomo linear optimization programs. A .dat file is generated per division. Each such file has name ```compdata{div#}.dat```. The format of these .dat files is specified in ```ai-final-proj/sample-files/compdata-format.dat```.
       2. Since the pyomo uses new variable numbers to represent each player, we need to create dictionaries to map these new variable numbers to the original player numbers we had. As such, for each division, we output file ```var-player-map-div-{div#}.pickle```. This stores a pickled dictionary of ```new-var-number -> original-player-number``` so we can recover information after the linear program finishes running. 
+
+3. 
